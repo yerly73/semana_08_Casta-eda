@@ -1,0 +1,19 @@
+Para installar
+-npm install -g @angular/cli
+-npm config set strict-ssl=false
+-ng version
+crear un proyecto 
+-ng new sistema
+generar la aplicacion dentro del browser
+-ng serve -o 
+
+
+
+---------------------------------------------------------
+-angular tiene el puerto 404
+-se actualiza solo
+assets se coloca toda las dependencia de tus plantillas 
+-app 
+   modulo de ruteo: exporta el tuteador
+   
+   

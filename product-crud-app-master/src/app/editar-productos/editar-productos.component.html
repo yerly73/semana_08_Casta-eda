@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row m-t-sm">
+            <div class="col-md-15">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="col-md-12 col-sm-12" id="form" style="display:block;">
+                            <div class="panel panel-filled">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12"><h5 class="m-t-xs">Edición de Producto</h5></div>
+                                    </div>
+                                    <form (ngSubmit)="updateProduct()">
+                                        <div class="form-group">
+                                            <label for="code" class="text-gamer">Código:</label>
+                                            <input [(ngModel)]="editingProduct.code" class="form-control" type="number" id="code" name="code" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description" class="text-gamer">Descripción:</label>
+                                            <input [(ngModel)]="editingProduct.description" class="form-control" type="text" id="description" name="description" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="price" class="text-gamer">Precio:</label>
+                                            <input [(ngModel)]="editingProduct.price" class="form-control" type="number" id="price" name="price" required>
+                                        </div>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary btn-gamer">Actualizar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Agrega una sección para mostrar la lista de productos -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row m-t-sm">
+            <div class="col-md-15">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="col-md-12 col-sm-12" id="product-list" style="display:block;">
+                            <div class="panel panel-filled">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12"><h5 class="m-t-xs">Lista de Productos</h5></div>
+                                    </div>
+                                    <table class="table table-striped table-bordered table-gamer">
+                                        <thead>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Descripción</th>
+                                                <th>Precio</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let product of products">
+                                                <td>{{ product.code }}</td>
+                                                <td>{{ product.description }}</td>
+                                                <td>{{ product.price | currency }}</td>
+                                                <td>
+                                                    <button (click)="editProduct(product)" class="btn btn-warning btn-gamer">Editar</button>
+                                                    <button (click)="deleteProduct(product.code)" class="btn btn-danger btn-gamer">Borrar</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
